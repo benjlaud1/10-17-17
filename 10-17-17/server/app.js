@@ -7,12 +7,12 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // Middleware
-app.use(express.static(path.joins(__dirname,'public')));
+app.use(express.static('public'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extened: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', function (req, res) {
-    res.sendFile('../public/views/index.html');
+    res.sendFile(path.resolve('public/views/index.html'));
 })
 
 // Spin up server
